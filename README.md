@@ -22,7 +22,7 @@ Ulster Bank Hackathon 2020 project submission
 
 ## Use Case Diagram
 
-![Use Case Diagram](https://raw.githubusercontent.com/stefdworschak/ub_hackathon/master/media/use_case_diagram.png)
+![Use Case Diagram](https://raw.githubusercontent.com/stefdworschak/ub_hackathon/master/media/Use%20Case%20Diagram.png)
 
 ## Proposed application pages (for SaaS model)
 
