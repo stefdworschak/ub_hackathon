@@ -9,6 +9,12 @@ const DashboardHeader = () =>
   import(
     /* webpackChunkName: "dashboard" */ "src/pages/Dashboard/Dashboard/DashboardHeader.vue"
   );
+const ESOP_Header = () =>
+  import(
+    /* webpackChunkName: "esop_wizard" */ "src/pages/Dashboard/ESOP_Wizard/ESOP_Header.vue"
+  );
+
+  ESOP_Header
 import DefaultHeader from "src/pages/Dashboard/DefaultHeader";
 import SweetAlertHeader from "src/pages/Dashboard/Components/Headers/SweetAlertHeader";
 import VectorMapsHeader from "src/pages/Dashboard/Maps/VectorMapsHeader";
@@ -56,6 +62,16 @@ const Typography = () =>
 const Dashboard = () =>
   import(
     /* webpackChunkName: "dashboard" */ "src/pages/Dashboard/Dashboard/Dashboard.vue"
+  );
+ //Company Dashboard 
+  const CompanyDashboard = () =>
+  import(
+    /* webpackChunkName: "CompanyDashboard" */ "src/pages/Dashboard/CompanyDashboard/CompanyDashboard.vue"
+  );
+
+const ESOP_Wizard = () =>
+  import(
+    /* webpackChunkName: "esop_widzard" */ "src/pages/Dashboard/ESOP_Wizard/ESOP_Wizard.vue"
   );
 import Widgets from "src/pages/Dashboard/Widgets.vue";
 
@@ -309,6 +325,16 @@ const routes = [
         path: "dashboard",
         name: "Dashboard",
         components: { default: Dashboard, header: DashboardHeader }
+      },
+      {
+        path: "CompanyDashboard",
+        name: "CompanyDashboard",
+        components: { default: CompanyDashboard, header: DashboardHeader }
+      },
+      {
+        path: "esop_wizard",
+        name: "ESOP_Wizard",
+        components: { default: ESOP_Wizard, header: ESOP_Header }
       },
       {
         path: "calendar",

@@ -12,7 +12,26 @@
           }"
         >
         </sidebar-item>
-        <!--<sidebar-item
+        <sidebar-item
+          :link="{
+            name: 'ESOP Wizard',
+            icon: 'now-ui-icons design_app',
+            path: '/esop_wizard'
+          }"
+        >
+        </sidebar-item>
+        <sidebar-item
+          :link="{
+            name: 'Company Dashboard',
+            icon: 'now-ui-icons design_app',
+            path: '/CompanyDashboard'
+          }"
+        >
+        </sidebar-item>
+
+        
+        
+        <sidebar-item
           :link="{ name: 'Pages', icon: 'now-ui-icons design_image' }"
         >
           <sidebar-item
@@ -121,7 +140,11 @@
             icon: 'now-ui-icons media-1_album',
             path: '/calendar'
           }"
-        ></sidebar-item>-->
+        ></sidebar-item>
+        
+        
+        
+    
       </template>
     </side-bar>
     <div class="main-panel">
