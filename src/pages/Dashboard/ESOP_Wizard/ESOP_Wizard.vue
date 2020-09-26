@@ -24,12 +24,45 @@
           <wizard-tab :before-change="() => validateStep('step2')">
             <template slot="label">
               <i class="now-ui-icons files_paper"></i>
-              Review & Send
+              Shareholder Agreement
             </template>
             <second-step
               ref="step2"
-              @on-validated="wizardComplete"
+              @on-validated="onStepValidated"
             ></second-step>
+          </wizard-tab>
+
+          <wizard-tab :before-change="() => validateStep('step3')">
+            <template slot="label">
+              <i class="now-ui-icons files_paper"></i>
+              Deed of Adherence
+            </template>
+            <third-step
+              ref="step3"
+              @on-validated="onStepValidated"
+            ></third-step>
+          </wizard-tab>
+
+          <wizard-tab :before-change="() => validateStep('step4')">
+            <template slot="label">
+              <i class="now-ui-icons files_paper"></i>
+              Share Option Plan
+            </template>
+            <fourth-step
+              ref="step4"
+              @on-validated="onStepValidated"
+            ></fourth-step>
+          </wizard-tab>
+
+          <wizard-tab :before-change="() => validateStep('step5')">
+            <template slot="label">
+              <i class="now-ui-icons ui-1_check"></i>
+              Review & Sign
+            </template>
+            <fifth-step
+              ref="step5"
+              @on-validated="wizardComplete"
+            ></fifth-step>
           </wizard-tab>
 
         </simple-wizard>
@@ -41,6 +74,9 @@
 <script>
 import FirstStep from "./Wizard/FirstStep.vue";
 import SecondStep from "./Wizard/SecondStep.vue";
+import ThirdStep from "./Wizard/ThirdStep.vue";
+import FourthStep from "./Wizard/FourthStep.vue";
+import FifthStep from "./Wizard/FifthStep.vue";
 import Swal from "sweetalert2";
 import { SimpleWizard, WizardTab } from "src/components";
 
@@ -53,6 +89,9 @@ export default {
   components: {
     FirstStep,
     SecondStep,
+    ThirdStep,
+    FourthStep,
+    FifthStep,
     SimpleWizard,
     WizardTab
   },

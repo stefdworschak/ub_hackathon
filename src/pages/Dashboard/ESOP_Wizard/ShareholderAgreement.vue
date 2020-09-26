@@ -519,7 +519,8 @@ export default {
       companyNumber: this.$store.getters.companyNumber,
       shareValue: 1.25,
 
-      today: new Date().toISOString().substring(0, 10)
+      today: new Date().toISOString().substring(0, 10),
+      year: new Date().toISOString().substring(0, 4),
     }
   },
   computed: {

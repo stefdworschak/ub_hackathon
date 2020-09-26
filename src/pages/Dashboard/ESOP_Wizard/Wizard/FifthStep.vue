@@ -5,15 +5,7 @@
       <div class="col-lg-10">
         <div class="row">
           <div class="col-sm-12">
-            <ShareholderAgreement />
-            <div class="col-sm-4">
-            <icon-checkbox
-              v-model="model.agree"
-              icon="now-ui-icons ui-1_check"
-              title="Code"
-            >
-            </icon-checkbox>
-          </div>
+            <ReviewESOP />
           </div>
           </div>
         </div>
@@ -23,21 +15,15 @@
 </template>
 <script>
 import { IconCheckbox } from "src/components";
-import ShareholderAgreement from "./../ShareholderAgreement.vue";
+import { ReviewESOP } from "./../ReviewESOP.vue";
 
 export default {
   components: {
     IconCheckbox,
-    ShareholderAgreement
+    ReviewESOP
   },
   data() {
     return {
-      model: {
-        today: new Date().toISOString().substring(0,10),
-        agree: true
-      },
-      company: "Test Limited",
-      employee: "My Employee"
     };
   },
   methods: {
