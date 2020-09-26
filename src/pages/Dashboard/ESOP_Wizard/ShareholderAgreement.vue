@@ -1,11 +1,10 @@
 <template>
+  
   <div>
     <p style="text-align: center;"><strong>&nbsp;</strong></p>
     <p style="text-align: center;">&nbsp;</p>
     <p style="text-align: center;"><span style="font-weight: 400;">Dated the </span> <span style="font-weight: 400;">day of {{today}}</span></p>
     <p style="text-align: center;"><br /><br /><br /><br /></p>
-    <p style="text-align: center;"><strong>{{company}}</strong></p>
-    <p style="text-align: center;"><br /><br /></p>
     <p style="text-align: center;"><strong>{{company}}</strong></p>
     <p style="text-align: center;">&nbsp;</p>
     <p style="text-align: center;"><strong>AND</strong></p>
@@ -67,7 +66,7 @@
     <p>&nbsp;</p>
     <p><strong>RECITALS</strong></p>
     <p>&nbsp;</p>
-    <p><span style="font-weight: 400;">(A)</span> <span style="font-weight: 400;">The Company is a private company limited by shares incorporated under the Companies Act (as hereinafter defined) on </span><strong>{{today}} </strong><span style="font-weight: 400;">and has an authorised share capital of </span><strong>{{amoutMoney}} </strong><span style="font-weight: 400;">made up of </span><strong>{{numShares}}</strong><span style="font-weight: 400;"> Ordinary Shares of &euro;1.00 each, of which </span><strong>{{numShares}}</strong><span style="font-weight: 400;"> Ordinary Shares of &euro;1.00 each have been issued.&nbsp;</span></p>
+    <p><span style="font-weight: 400;">(A)</span> <span style="font-weight: 400;">The Company is a private company limited by shares incorporated under the Companies Act (as hereinafter defined) on </span><strong>{{today}} </strong><span style="font-weight: 400;">and has an authorised share capital of </span><strong>&euro;{{amoutMoney}} </strong><span style="font-weight: 400;">made up of </span><strong>{{numShares}}</strong><span style="font-weight: 400;"> Ordinary Shares of &euro;1.00 each, of which </span><strong>{{numShares}}</strong><span style="font-weight: 400;"> Ordinary Shares of &euro;1.00 each have been issued.&nbsp;</span></p>
     <p>&nbsp;</p>
     <p><span style="font-weight: 400;">(B)</span> <span style="font-weight: 400;">The Shareholders (who hold the Shares set out in Schedule 1) have agreed to enter into this Agreement for the purpose of regulating the future conduct of the business of the Company and the relationship between the Shareholders in relation to the Company.</span></p>
     <p>&nbsp;</p>
@@ -507,21 +506,92 @@
   </div>
 </template>
 <script>
+import Vue from 'vue';
+import Vuex from 'vuex';
 export default {
+  
   data() {
     return {
-      company: this.$store.state.company.name,
-      today: new Date().toISOString().substring(0, 10),
+      company: this.$store.getters.companyName,
       companyDirector: "John Prentice",
-      employee: this.$store.state.esop.employeeName,
-      companyNumber: "1231233",
-      companyAddress: "34 Main St., Dublin, Ireland",
-      amoutMoney: (parseInt(this.$store.state.esop.numShares) * 1.25) + " EUR",
-      numShares: this.$store.state.esop.numShares,
-      employeeAddress: this.$store.state.esop.employeeAddress,
-      companyBusiness: "Sales",
-      employeeJob: "Salesman"
+      companyAddress: this.$store.getters.companyAddress,      
+      companyBusiness: this.$store.getters.companyBusiness,
+      companyNumber: this.$store.getters.companyNumber,
+      shareValue: 1.25,
+
+      today: new Date().toISOString().substring(0, 10)
     }
+  },
+  computed: {
+    employee: {
+      get () {
+        return this.$store.state.esop.employeeName;
+      },
+      set (value) {
+        this.$store.commit('setEmployeeName', value);
+      }
+    },
+    employeeAddress: {
+      get () {
+        return this.$store.state.esop.employeeAddress;
+      },
+      set (value) {
+        this.$store.commit('setEmployeeAddress', value);
+      }
+    },
+    employeeJob: {
+      get () {
+        return this.$store.state.esop.employeeJob;
+      },
+      set (value) {
+        this.$store.commit('setEmployeeJob', value);
+      }
+    },
+    employeeEmail: {
+      get () {
+        return this.$store.state.esop.employeeEmail;
+      },
+      set (value) {
+        this.$store.commit('setEmployeeEmail', value);
+      }
+    },
+    esopType: {
+      get () {
+        return this.$store.state.esop.esopType;
+      },
+      set (value) {
+        this.$store.commit('setEsopType', value);
+      }
+    },
+    numShares: {
+      get () {
+        return this.$store.state.esop.numShares;
+      },
+      set (value) {
+        this.$store.commit('setNumShares', value);
+      }
+    },
+    amoutMoney: {
+      get () {
+        return parseInt(this.$store.getters.numShares) ;
+      }
+    },
+    vestingDate: {
+      get () {
+        return this.$store.state.esop.vestingDate;
+      },
+      set (value) {
+        this.$store.commit('setVestingDate', value);
+      }
+    },
+    expiryDate: {
+      get () {
+        let numberOfDaysToAdd = 1095;
+        return someDate.setDate(new Date(his.$store.getters.vestingDate) + numberOfDaysToAdd)
+      }
+    }
+  },
+  mounted(){
   }
 }
 </script>

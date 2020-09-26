@@ -9,16 +9,17 @@ export default new Vuex.Store({
       employeeName: "",
       employeeAddress: "",
       employeeEmail: "",
+      employeeJob: "",
       esopType: "",
       numShares: "",
-      vestingDate: ""
+      vestingDate: "",
    },
    company: {
      name: "Piece of Cake Ltd.",
      address: "4 Grand Canal Square, Dublin, Ireland Dublin",
      founded: "",
-     companyBusiness,
-
+     business: "Advertisement",
+     number: "462932",
    }
  },
  getters: {
@@ -31,6 +32,9 @@ export default new Vuex.Store({
    employeeEmail: state => {
      return state.esop.employeeEmail;
    },
+   employeeJob: state => {
+     return state.esop.employeeJob;
+   },
    esopType: state => {
      return state.esop.esopType;
    },
@@ -39,7 +43,19 @@ export default new Vuex.Store({
    },
    vestingDate: state => {
      return state.esop.vestingDate;
-   }
+   },
+   companyName: state => {
+     return state.company.name;
+   },
+   companyNumber: state => {
+     return state.company.number;
+   },
+   companyAddress: state => {
+     return state.company.address;
+   },
+   companyBusiness: state => {
+     return state.company.business;
+   },
    
  },
  mutations: {
@@ -51,6 +67,9 @@ export default new Vuex.Store({
    },
    setEmployeeEmail (state, payload) {
      state.esop.employeeEmail = payload
+   },
+   setEmployeeJob (state, payload) {
+     state.esop.employeeJob = payload
    },
    setEsopType (state, payload) {
      state.esop.esopType = payload
