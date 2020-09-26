@@ -24,6 +24,7 @@ import App from "./App.vue";
 
 // router setup
 import routes from "./routes/routes";
+import store from "./store";
 
 // plugin setup
 Vue.use(VueRouter);
@@ -39,5 +40,6 @@ const router = new VueRouter({
 new Vue({
   el: "#app",
   render: h => h(App),
-  router
+  router,
+  store
 });

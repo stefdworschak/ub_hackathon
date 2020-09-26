@@ -148,6 +148,8 @@
   </ValidationObserver>
 </template>
 <script>
+import Vue from 'vue';
+import Vuex from 'vuex';
 import { Upload, Select, Option } from "element-ui";
 import { extend } from "vee-validate";
 import { required, email } from "vee-validate/dist/rules";
@@ -163,14 +165,61 @@ export default {
   },
   data() {
     return {
-      employeeName: "",
-      employeeAddress: "",
-      employeeEmail: "",
-      esopType: "",
-      numShares: "",
-      vestingDate: "",
       ESOPTypeOptions: ["Growth Shares", "KEEP"]
     };
+  },
+  mounted(){
+    console.log(this.$store.state.esop);
+  },
+  computed: {
+    employeeName: {
+      get () {
+        return this.$store.state.esop.employeeName;
+      },
+      set (value) {
+        this.$store.commit('setEmployeeName', value);
+      }
+    },
+    employeeAddress: {
+      get () {
+        return this.$store.state.esop.employeeAddress;
+      },
+      set (value) {
+        this.$store.commit('setEmployeeAddress', value);
+      }
+    },
+    employeeEmail: {
+      get () {
+        return this.$store.state.esop.employeeEmail;
+      },
+      set (value) {
+        this.$store.commit('setEmployeeEmail', value);
+      }
+    },
+    esopType: {
+      get () {
+        return this.$store.state.esop.esopType;
+      },
+      set (value) {
+        this.$store.commit('setEsopType', value);
+      }
+    },
+    numShares: {
+      get () {
+        return this.$store.state.esop.numShares;
+      },
+      set (value) {
+        this.$store.commit('setNumShares', value);
+      }
+    },
+    vestingDate: {
+      get () {
+        return this.$store.state.esop.vestingDate;
+      },
+      set (value) {
+        this.$store.commit('setVestingDate', value);
+      }
+    }
   },
   methods: {
     handlePreview(file) {

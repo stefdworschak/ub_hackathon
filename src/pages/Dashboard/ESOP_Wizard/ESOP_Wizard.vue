@@ -8,7 +8,6 @@
             <h3 class="description">
               Build a new Employee Stock Ownership Plan (ESOP) using our simple wizard
             </h3>
-            {{wizardModel}}
           </template>
 
           <wizard-tab :before-change="() => validateStep('step1')">

@@ -5,8 +5,7 @@
       <div class="col-lg-10">
         <div class="row">
           <div class="col-sm-12">
-            
-              {{model.employeeName}}
+            <ShareholderAgreement />
           </div>
           </div>
         </div>
@@ -26,6 +25,7 @@ export default {
   data() {
     return {
       model: {
+        today: new Date().toISOString().substring(0,10),
         design: true,
         code: false,
         develop: false,

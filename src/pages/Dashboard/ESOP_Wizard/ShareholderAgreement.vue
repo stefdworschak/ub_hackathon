@@ -508,6 +508,20 @@
 </template>
 <script>
 export default {
-  props: ['employee', 'company', 'vestingDate']
+  data() {
+    return {
+      company: this.$store.state.company.name,
+      today: new Date().toISOString().substring(0, 10),
+      companyDirector: "John Prentice",
+      employee: this.$store.state.esop.employeeName,
+      companyNumber: "1231233",
+      companyAddress: "34 Main St., Dublin, Ireland",
+      amoutMoney: (parseInt(this.$store.state.esop.numShares) * 1.25) + " EUR",
+      numShares: this.$store.state.esop.numShares,
+      employeeAddress: this.$store.state.esop.employeeAddress,
+      companyBusiness: "Sales",
+      employeeJob: "Salesman"
+    }
+  }
 }
 </script>
