@@ -6,7 +6,17 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-3">
-        
+        <div class="statistics">
+                  <div class="info">
+                    <div class="icon icon-primary">
+                      <i class="now-ui-icons ui-2_chat-round"></i>
+                    </div>
+                    <h3 class="info-title">
+                      <animated-number :value="853"></animated-number>
+                    </h3>
+                    <h6 class="stats-title">Messages</h6>
+                  </div>
+                </div>
               </div>
               <div class="col-md-3">
                 <div class="statistics">
@@ -15,10 +25,10 @@
                       <i class="now-ui-icons business_money-coins"></i>
                     </div>
                     <h3 class="info-title">
-                      <small>$</small>
-                      <animated-number :value="3521"></animated-number>
+                      <small>€</small>
+                      <animated-number :value="352100"></animated-number>
                     </h3>
-                    <h6 class="stats-title">Today Revenue</h6>
+                    <h6 class="stats-title">Total Share Value</h6>
                   </div>
                 </div>
               </div>
@@ -29,9 +39,9 @@
                       <i class="now-ui-icons users_single-02"></i>
                     </div>
                     <h3 class="info-title">
-                      <animated-number :value="562"></animated-number>
+                      <animated-number :value="98"></animated-number>
                     </h3>
-                    <h6 class="stats-title">Customers</h6>
+                    <h6 class="stats-title">Employees</h6>
                   </div>
                 </div>
               </div>
@@ -54,7 +64,45 @@
       </div>
     </div>
 
-    <div class="row">
+    
+        <card class="card-chart" no-footer-line>
+          <template slot="header">
+            <h5 class="card-category">With Numbers And Grid</h5>
+            <h4 class="card-title">Line Chart 2</h4>
+            <drop-down position="right">
+              <n-button
+                slot="title"
+                class="dropdown-toggle no-caret"
+                round
+                simple
+                icon
+              >
+                <i class="now-ui-icons loader_gear"></i>
+              </n-button>
+
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item text-danger" href="#">Remove Data</a>
+            </drop-down>
+          </template>
+          <div class="chart-area">
+            <line-chart
+              :labels="lineChart2.labels"
+              :data="lineChart2.data"
+              :color="lineChart2.color"
+              :extraOptions="lineChart2.extraOptions"
+              :height="200"
+            >
+            </line-chart>
+          </div>
+          <div slot="footer" class="stats">
+            <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+          </div>
+        </card>
+
+
+    <!--<div class="row">
       <div class="col-lg-4">
         <card class="card-chart" no-footer-line>
           <div slot="header">
@@ -207,7 +255,7 @@
           </div>
         </card>
       </div>
-      </div>
+      </div>-->
     
   </div>
 </template>
@@ -222,6 +270,7 @@ import {
 } from "src/components";
 
 import LineChart from "src/components/Charts/LineChart";
+import BarChart from "src/components/Charts/BarChart";
 
 export default {
   components: {
@@ -230,7 +279,9 @@ export default {
     AnimatedNumber,
     LineChart,
     NProgress,
-    AsyncWorldMap
+    AsyncWorldMap,
+    LineChart,
+    BarChart,
   },
   data() {
     return {

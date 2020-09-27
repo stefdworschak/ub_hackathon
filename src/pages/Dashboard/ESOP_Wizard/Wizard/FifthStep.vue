@@ -5,8 +5,7 @@
       <div class="col-lg-10">
         <div class="row">
           <div class="col-sm-12">
-            <ReviewESOP />
-          </div>
+            <Review />
           </div>
         </div>
       </div>
@@ -14,13 +13,11 @@
   </div>
 </template>
 <script>
-import { IconCheckbox } from "src/components";
-import { ReviewESOP } from "./../ReviewESOP.vue";
+import Review from "./../Review.vue";
 
 export default {
   components: {
-    IconCheckbox,
-    ReviewESOP
+    Review
   },
   data() {
     return {

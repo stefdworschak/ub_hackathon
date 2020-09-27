@@ -2,6 +2,7 @@
   <div>
     <div class="row">
       <div class="col-12">
+      
         <el-table :data="tableData">
           <el-table-column
             min-width="150"
@@ -14,17 +15,19 @@
             property="val"
           ></el-table-column>
         </el-table>
-
       </div>
     </div>
-    
   </div>
 </template>
 <script>
+import { Table, TableColumn } from "element-ui";
 import Vue from 'vue';
 import Vuex from 'vuex';
 export default {
-  
+  components: {
+    [Table.name]: Table,
+    [TableColumn.name]: TableColumn
+  },
   data() {
     return {
       company: this.$store.getters.companyName,
@@ -36,12 +39,12 @@ export default {
 
       today: new Date().toISOString().substring(0, 10),
       year: new Date().toISOString().substring(0, 4),
-      tableData: [
-      {
-        key: "Company Name",
-        val: company
-      }
-    ]
+      dataTable: [
+        {
+          key: 'c',
+          val: 'a'
+        }
+      ]
     }
   },
   computed: {

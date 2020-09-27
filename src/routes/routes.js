@@ -63,12 +63,16 @@ const Dashboard = () =>
   import(
     /* webpackChunkName: "dashboard" */ "src/pages/Dashboard/Dashboard/Dashboard.vue"
   );
- //Company Dashboard 
+
   const CompanyDashboard = () =>
   import(
     /* webpackChunkName: "CompanyDashboard" */ "src/pages/Dashboard/CompanyDashboard/CompanyDashboard.vue"
   );
-
+//Cap Table 
+  const Cap_Table = () =>
+  import(
+    /* webpackChunkName: "Cap_Table" */ "src/pages/Dashboard/Cap_Table/Cap_Table.vue"
+  );
 const ESOP_Wizard = () =>
   import(
     /* webpackChunkName: "esop_widzard" */ "src/pages/Dashboard/ESOP_Wizard/ESOP_Wizard.vue"
@@ -329,7 +333,12 @@ const routes = [
       {
         path: "CompanyDashboard",
         name: "CompanyDashboard",
-        components: { default: CompanyDashboard, header: DashboardHeader }
+        components: { default: CompanyDashboard, header: DefaultHeader }
+      },
+      {
+        path: "Cap_Table",
+        name: "Cap_Table",
+        components: { default: Cap_Table, header: DefaultHeader }
       },
       {
         path: "esop_wizard",
