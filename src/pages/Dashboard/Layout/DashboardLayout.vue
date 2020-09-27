@@ -7,7 +7,7 @@
         <sidebar-item
           :link="{
             name: 'Dashboard',
-            icon: 'now-ui-icons design_app',
+            icon: 'now-ui-icons business_chart-pie-36',
             path: '/dashboard'
           }"
         >
@@ -15,7 +15,7 @@
         <sidebar-item
           :link="{
             name: 'ESOP Wizard',
-            icon: 'now-ui-icons design_app',
+            icon: 'now-ui-icons design_vector',
             path: '/esop_wizard'
           }"
         >
@@ -23,7 +23,7 @@
         <sidebar-item
           :link="{
             name: 'Company Dashboard',
-            icon: 'now-ui-icons design_app',
+            icon: 'now-ui-icons business_chart-bar-32',
             path: '/CompanyDashboard'
           }"
         >
@@ -31,7 +31,7 @@
         <sidebar-item
           :link="{
             name: 'Cap Table',
-            icon: 'now-ui-icons design_app',
+            icon: 'now-ui-icons design_bullet-list-67',
             path: '/Cap_Table'
           }"
         >
