@@ -17,6 +17,7 @@
 
 import Vue from "vue";
 import VueRouter from "vue-router";
+import VueGraph from 'vue-graph'
 import DashboardPlugin from "./dashboard-plugin";
 
 // Plugins
@@ -29,6 +30,7 @@ import store from "./store";
 // plugin setup
 Vue.use(VueRouter);
 Vue.use(DashboardPlugin);
+Vue.use(VueGraph);
 
 // configure router
 const router = new VueRouter({

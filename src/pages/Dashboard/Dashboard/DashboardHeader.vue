@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      chartData: [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95],
+      chartData: [20, 50, 100, 175, 185, 200, 220, 235, 340, 380, 390, 410],
       chartLabels: [
         "JAN",
         "FEB",

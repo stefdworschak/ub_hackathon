@@ -8,13 +8,14 @@
               <div class="col-md-3">
                 <div class="statistics">
                   <div class="info">
-                    <div class="icon icon-primary">
-                      <i class="now-ui-icons ui-2_chat-round"></i>
+                    <div class="icon icon-success">
+                      <i class="now-ui-icons business_money-coins"></i>
                     </div>
                     <h3 class="info-title">
-                      <animated-number :value="853"></animated-number>
+                        <small>€</small>
+                      <animated-number :value="853000"></animated-number>
                     </h3>
-                    <h6 class="stats-title">Messages</h6>
+                    <h6 class="stats-title">Total Share Value</h6>
                   </div>
                 </div>
               </div>
@@ -25,10 +26,10 @@
                       <i class="now-ui-icons business_money-coins"></i>
                     </div>
                     <h3 class="info-title">
-                      <small>$</small>
-                      <animated-number :value="3521"></animated-number>
+                      <small>€</small>
+                      <animated-number :value="43"></animated-number>
                     </h3>
-                    <h6 class="stats-title">Today Revenue</h6>
+                    <h6 class="stats-title">Indivdual Share Value</h6>
                   </div>
                 </div>
               </div>
@@ -39,9 +40,9 @@
                       <i class="now-ui-icons users_single-02"></i>
                     </div>
                     <h3 class="info-title">
-                      <animated-number :value="562"></animated-number>
+                      <animated-number :value="74"></animated-number>
                     </h3>
-                    <h6 class="stats-title">Customers</h6>
+                    <h6 class="stats-title">Employees</h6>
                   </div>
                 </div>
               </div>
@@ -52,9 +53,9 @@
                       <i class="now-ui-icons objects_support-17"></i>
                     </div>
                     <h3 class="info-title">
-                      <animated-number :value="353"></animated-number>
+                      <animated-number :value="19837"></animated-number>
                     </h3>
-                    <h6 class="stats-title">Support Requests</h6>
+                    <h6 class="stats-title">Total Shares Issued</h6>
                   </div>
                 </div>
               </div>
