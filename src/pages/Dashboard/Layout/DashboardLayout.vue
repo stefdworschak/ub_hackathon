@@ -10,42 +10,36 @@
             icon: 'now-ui-icons business_chart-pie-36',
             path: '/dashboard'
           }"
-        >
-        </sidebar-item>
+        ></sidebar-item>
         <sidebar-item
           :link="{
-            name: 'ESOP Wizard',
+            name: 'Scheme Generator',
             icon: 'now-ui-icons design_vector',
             path: '/esop_wizard'
           }"
-        >
-        </sidebar-item>
-        <!--<sidebar-item
+        ></sidebar-item>
+        <sidebar-item
           :link="{
-            name: 'Company Dashboard',
+            name: 'Valuation',
             icon: 'now-ui-icons business_chart-bar-32',
-            path: '/CompanyDashboard'
+            path: '/ValuationWizard'
           }"
-        >-->
-        </sidebar-item>
+        ></sidebar-item>
         <sidebar-item
           :link="{
             name: 'Cap Table',
             icon: 'now-ui-icons design_bullet-list-67',
             path: '/Cap_Table'
           }"
-        >
-        </sidebar-item>
-        </sidebar-item>
-        <sidebar-item
+        ></sidebar-item>
+                <!--<sidebar-item
           :link="{
-            name: 'Valuation',
+            name: 'Company Dashboard',
             icon: 'now-ui-icons business_chart-bar-32',
-            path: '/Valuation'
+            path: '/CompanyDashboard'
           }"
         >
-        </sidebar-item>
-        
+        </sidebar-item>-->
         
        <!-- <sidebar-item
           :link="{ name: 'Pages', icon: 'now-ui-icons design_image' }"
@@ -68,7 +62,6 @@
           <!--<sidebar-item
             :link="{ name: 'User Profile', icon: 'now-ui-icons design_app', path: '/pages/user' }"
           ></sidebar-item>-->
-        </sidebar-item>
         <!--<sidebar-item
           :link="{ name: 'Components', icon: 'now-ui-icons education_atom' }"
         >-->
@@ -93,7 +86,6 @@
           <!--<sidebar-item
             :link="{ name: 'Typography', path: '/components/typography' }"
           ></sidebar-item>-->
-        </sidebar-item>
         <!--<sidebar-item
           :link="{ name: 'Forms', icon: 'now-ui-icons files_single-copy-04' }"
         >-->
@@ -109,7 +101,6 @@
           <!--<sidebar-item
             :link="{ name: 'Wizard', path: '/forms/wizard' }"
           ></sidebar-item>-->
-        </sidebar-item>
         <!--<sidebar-item
           :link="{ name: 'Tables', icon: 'now-ui-icons design_bullet-list-67' }"
         >-->
@@ -122,7 +113,6 @@
           <!--<sidebar-item
             :link="{ name: 'Paginated Tables', path: '/table-list/paginated' }"
           ></sidebar-item>-->
-        </sidebar-item>
         <!--<sidebar-item
           :link="{ name: 'Maps', icon: 'now-ui-icons location_pin' }"
         >-->
@@ -135,7 +125,6 @@
           <!--<sidebar-item
             :link="{ name: 'Vector Maps', path: '/maps/vector-map' }"
           ></sidebar-item>-->
-        </sidebar-item>
         <!--<sidebar-item
           :link="{
             name: 'Widgets',

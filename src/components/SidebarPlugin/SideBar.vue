@@ -1,13 +1,13 @@
 <template>
   <div class="sidebar" :data-color="backgroundColor">
     <div class="logo">
-      <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+      <a href="http://www.pieceofcakes.services" class="simple-text logo-mini">
         <div class="logo-image">
           <img :src="logo" />
         </div>
       </a>
 
-      <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+      <a href="http://www.pieceofcakes.services" class="simple-text logo-normal">
         {{ title }}
       </a>
       <div class="navbar-minimize">
@@ -52,7 +52,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "Vue NUD PRO"
+      default: "Piece of Cake"
     },
     backgroundColor: {
       type: String,
@@ -73,7 +73,7 @@ export default {
     },
     logo: {
       type: String,
-      default: "img/icon-vue.png"
+      default: "img/poc_logo.png"
     },
     sidebarLinks: {
       type: Array,

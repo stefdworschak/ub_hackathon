@@ -27,7 +27,7 @@
                     </div>
                     <h3 class="info-title">
                       <small>€</small>
-                      <animated-number :value="43"></animated-number>
+                      <animated-number :value=""></animated-number>
                     </h3>
                     <h6 class="stats-title">Indivdual Share Value</h6>
                   </div>
@@ -53,7 +53,7 @@
                       <i class="now-ui-icons objects_support-17"></i>
                     </div>
                     <h3 class="info-title">
-                      <animated-number :value="19837"></animated-number>
+                      <animated-number :value="353"></animated-number>
                     </h3>
                     <h6 class="stats-title">Total Shares Issued</h6>
                   </div>
@@ -282,6 +282,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import {
   Card,

@@ -73,10 +73,10 @@ const Dashboard = () =>
   import(
     /* webpackChunkName: "Cap_Table" */ "src/pages/Dashboard/Cap_Table/Cap_Table.vue"
   );
-  //valuation Table 
-  const Valuation = () =>
+  //ValuationWizard Table 
+  const ValuationWizard = () =>
   import(
-    /* webpackChunkName: "Valuation" */ "src/pages/Dashboard/Valuation/Valuation.vue"
+    /* webpackChunkName: "ValuationWizard" */ "src/pages/Dashboard/ValuationWizard/ValuationWizard.vue"
   );
 const ESOP_Wizard = () =>
   import(
@@ -341,9 +341,9 @@ const routes = [
         components: { default: CompanyDashboard, header: DefaultHeader }
       },
        {
-        path: "Valuation",
-        name: "Valuation",
-        components: { default: Valuation, header: DefaultHeader }
+        path: "ValuationWizard",
+        name: "ValuationWizard",
+        components: { default: ValuationWizard, header: DefaultHeader }
       },
       {
         path: "Cap_Table",
