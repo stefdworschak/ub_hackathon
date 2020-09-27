@@ -3,19 +3,12 @@
     <notifications></notifications>
     <side-bar>
       <template slot="links">
-        <user-menu></user-menu>
+        <!--<user-menu></user-menu>-->
         <sidebar-item
           :link="{
             name: 'Dashboard',
             icon: 'now-ui-icons business_chart-pie-36',
             path: '/dashboard'
-          }"
-        ></sidebar-item>
-        <sidebar-item
-          :link="{
-            name: 'Scheme Generator',
-            icon: 'now-ui-icons design_vector',
-            path: '/esop_wizard'
           }"
         ></sidebar-item>
         <sidebar-item
@@ -27,11 +20,18 @@
         ></sidebar-item>
         <sidebar-item
           :link="{
+            name: 'Scheme Generator',
+            icon: 'now-ui-icons design_vector',
+            path: '/esop_wizard'
+          }"
+        ></sidebar-item>
+        <!--<sidebar-item
+          :link="{
             name: 'Cap Table',
             icon: 'now-ui-icons design_bullet-list-67',
             path: '/Cap_Table'
           }"
-        ></sidebar-item>
+        ></sidebar-item>-->
                 <!--<sidebar-item
           :link="{
             name: 'Company Dashboard',

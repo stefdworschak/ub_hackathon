@@ -27,7 +27,7 @@
                     </div>
                     <h3 class="info-title">
                       <small>€</small>
-                      <animated-number :value=""></animated-number>
+                      <animated-number :value="43"></animated-number>
                     </h3>
                     <h6 class="stats-title">Indivdual Share Value</h6>
                   </div>
@@ -64,235 +64,99 @@
         </div>
       </div>
     </div>
-
+    
     <div class="row">
-      <div class="col-lg-4">
-        <card class="card-chart" no-footer-line>
-          <div slot="header">
-            <h5 class="card-category">Active Users</h5>
-            <h2 class="card-title">
-              <animated-number :value="34252"> </animated-number>
-            </h2>
-            <drop-down :hide-arrow="true" position="right">
-              <n-button
-                slot="title"
-                class="dropdown-toggle no-caret"
-                type="outline-default"
-                round
-                icon
+      <div class="col-lg-12">
+
+        <card card-body-classes="table-full-width" no-footer-line>
+        <h4 slot="header" class="card-title">Cap Table</h4>
+        <div>
+          <div
+            class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
+          >
+            <el-select
+              class="select-primary mb-3"
+              style="width: 200px"
+              v-model="pagination.perPage"
+              placeholder="Per page"
+            >
+              <el-option
+                class="select-default"
+                v-for="item in pagination.perPageOptions"
+                :key="item"
+                :label="item"
+                :value="item"
               >
-                <i class="now-ui-icons loader_gear"></i>
-              </n-button>
-
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <a class="dropdown-item text-danger" href="#">Remove Data</a>
-            </drop-down>
-          </div>
-          <div class="chart-area">
-            <line-chart
-              :labels="charts.activeUsers.labels"
-              :data="charts.activeUsers.data"
-              :color="charts.activeUsers.color"
-              :height="200"
-            >
-            </line-chart>
-          </div>
-          <div class="table-responsive">
-            <n-table :data="tableData">
-              <template slot-scope="{ row }">
-                <td>
-                  <div class="flag">
-                    <img :src="row.flag" />
-                  </div>
-                </td>
-                <td>{{ row.country }}</td>
-                <td class="text-right">
-                  {{ row.value }}
-                </td>
-                <td class="text-right">
-                  {{ row.percentage }}
-                </td>
-              </template>
-            </n-table>
-          </div>
-          <div slot="footer" class="stats">
-            <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
-          </div>
-        </card>
-      </div>
-
-      <div class="col-lg-4">
-        <card class="card-chart" no-footer-line>
-          <div slot="header">
-            <h5 class="card-category">Summer Email Campaign</h5>
-            <h2 class="card-title">
-              <animated-number :value="55300"> </animated-number>
-            </h2>
-            <drop-down position="right">
-              <n-button
-                slot="title"
-                class="dropdown-toggle no-caret"
-                round
-                type="outline-default"
-                icon
+              </el-option>
+            </el-select>
+            <fg-input>
+              <el-input
+                type="search"
+                class="mb-3"
+                clearable
+                prefix-icon="el-icon-search"
+                style="width: 200px"
+                placeholder="Search records"
+                v-model="searchQuery"
+                aria-controls="datatables"
               >
-                <i class="now-ui-icons loader_gear"></i>
-              </n-button>
-
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <a class="dropdown-item text-danger" href="#">Remove Data</a>
-            </drop-down>
+              </el-input>
+            </fg-input>
           </div>
-          <div class="chart-area">
-            <line-chart
-              :labels="charts.emailsCampaign.labels"
-              :data="charts.emailsCampaign.data"
-              :color="charts.emailsCampaign.color"
-              :height="200"
+          <el-table stripe style="width: 100%;" :data="queriedData">
+            <el-table-column
+              v-for="column in tableColumns"
+              :key="column.label"
+              :min-width="column.minWidth"
+              :prop="column.prop"
+              :label="column.label"
             >
-            </line-chart>
+            </el-table-column>
+            
+          </el-table>
+        </div>
+        <div
+          slot="footer"
+          class="col-12 d-flex justify-content-center justify-content-sm-between flex-wrap"
+        >
+          <div class="">
+            <p class="card-category">
+              Showing {{ from + 1 }} to {{ to }} of {{ total }} entries
+            </p>
           </div>
-          <div class="card-progress">
-            <n-progress
-              label="Delivery Rate"
-              :value="90"
-              show-value
-            ></n-progress>
-            <n-progress
-              type="success"
-              label="Open Rate"
-              :value="60"
-              show-value
-            ></n-progress>
-            <n-progress
-              type="info"
-              label="Click Rate"
-              :value="12"
-              show-value
-            ></n-progress>
-            <n-progress
-              type="warning"
-              label="Hard Bounce"
-              :value="5"
-              show-value
-            ></n-progress>
-            <n-progress
-              type="danger"
-              label="Spam Report"
-              :value="0.11"
-              show-value
-            ></n-progress>
-          </div>
-          <div slot="footer" class="stats">
-            <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
-          </div>
-        </card>
-      </div>
+          <n-pagination
+            class="pagination-no-border"
+            v-model="pagination.currentPage"
+            :per-page="pagination.perPage"
+            :total="total"
+          >
+          </n-pagination>
+        </div>
+      </card>
 
-      <div class="col-lg-4">
-        <card class="card-chart" no-footer-line>
-          <div slot="header">
-            <h5 class="card-category">Active Countries</h5>
-            <h2 class="card-title">
-              <animated-number :value="105"> </animated-number>
-            </h2>
-          </div>
-          <div class="chart-area">
-            <line-chart
-              :labels="charts.activeCountries.labels"
-              :data="charts.activeCountries.data"
-              :color="charts.activeCountries.color"
-              :height="200"
-            >
-            </line-chart>
-          </div>
 
-          <async-world-map class="map" :data="mapData"></async-world-map>
 
-          <div slot="footer" class="stats">
-            <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
-          </div>
-        </card>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <card>
-          <h4 slot="header" class="card-title">Best Selling Products</h4>
-          <div class="table-responsive">
-            <n-table class="table-shopping" :data="productsTable">
-              <template slot="columns">
-                <th class="text-center"></th>
-                <th>Product</th>
-                <th>Color</th>
-                <th>Size</th>
-                <th class="text-right">
-                  Price
-                </th>
-                <th class="text-right">
-                  Qty
-                </th>
-                <th class="text-right">
-                  Amount
-                </th>
-              </template>
-              <template slot-scope="{ row }">
-                <td>
-                  <div class="img-container">
-                    <img :src="row.image" alt="..." />
-                  </div>
-                </td>
-                <td class="td-name">
-                  <a href="#jacket">{{ row.title }}</a>
-                  <br />
-                  <small>{{ row.subTitle }}</small>
-                </td>
-                <td>{{ row.color }}</td>
-                <td>{{ row.size }}</td>
-                <td class="td-number">
-                  <small>€</small>
-                  {{ row.price }}
-                </td>
-                <td class="td-number">
-                  {{ row.quantity }}
-                </td>
-                <td class="td-number">
-                  <small>€</small>
-                  {{ row.amount }}
-                </td>
-              </template>
-              <template slot="summary-row">
-                <td colspan="5"></td>
-                <td class="td-total">
-                  Total
-                </td>
-                <td class="td-price">
-                  <small>€</small>
-                  2,346
-                </td>
-              </template>
-            </n-table>
-          </div>
-        </card>
+
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { Table, TableColumn, Select, Option } from "element-ui";
+import users from "./users";
+import Fuse from "fuse.js";
+import Swal from "sweetalert2";
 import {
   Card,
   Table as NTable,
   AnimatedNumber,
   Progress as NProgress,
-  AsyncWorldMap
+  Pagination as NPagination,
+  AsyncWorldMap,
+  LineChart
 } from "src/components";
-
-import LineChart from "src/components/Charts/LineChart";
 
 export default {
   components: {
@@ -301,7 +165,13 @@ export default {
     AnimatedNumber,
     LineChart,
     NProgress,
-    AsyncWorldMap
+    NPagination,
+    AsyncWorldMap,
+    LineChart,
+    [Select.name]: Select,
+    [Option.name]: Option,
+    [Table.name]: Table,
+    [TableColumn.name]: TableColumn
   },
   data() {
     return {
@@ -429,9 +299,90 @@ export default {
         RO: 600,
         RU: 300,
         US: 2920
-      }
+      },
+      pagination: {
+        perPage: 5,
+        currentPage: 1,
+        perPageOptions: [5, 10, 25, 50],
+        total: 0
+      },
+      searchQuery: "",
+      propsToSearch: ["name", "email", "Shares"],
+      tableColumns: [
+        {
+          prop: "name",
+          label: "Name",
+          minWidth: 200
+        },
+        {
+          prop: "email",
+          label: "Email",
+          minWidth: 250
+        },
+        {
+          prop: "Shares",
+          label: "Shares",
+          minWidth: 100
+        },
+        {
+          prop: "Value",
+          label: "Value",
+          minWidth: 120
+        }
+      ],
+      tableData: users,
+      searchedData: [],
+      fuseSearch: null
     };
-  }
+  },
+  mounted(){
+      // Fuse search initialization.
+    this.fuseSearch = new Fuse(this.tableData, {
+      keys: ["name", "email"],
+      threshold: 0.3
+    });
+  },
+  watch: {
+    /**
+     * Searches through the table data by a given query.
+     * NOTE: If you have a lot of data, it's recommended to do the search on the Server Side and only display the results here.
+     * @param value of the query
+     */
+    searchQuery(value) {
+      let result = this.tableData;
+      if (value !== "") {
+        result = this.fuseSearch.search(this.searchQuery);
+      }
+      this.searchedData = result;
+    }
+  },
+  computed: {
+    /***
+     * Returns a page from the searched data or the whole data. Search is performed in the watch section below
+     */
+    queriedData() {
+      let result = this.tableData;
+      if (this.searchedData.length > 0) {
+        result = this.searchedData;
+      }
+      return result.slice(this.from, this.to);
+    },
+    to() {
+      let highBound = this.from + this.pagination.perPage;
+      if (this.total < highBound) {
+        highBound = this.total;
+      }
+      return highBound;
+    },
+    from() {
+      return this.pagination.perPage * (this.pagination.currentPage - 1);
+    },
+    total() {
+      return this.searchedData.length > 0
+        ? this.searchedData.length
+        : this.tableData.length;
+    }
+  },
 };
 </script>
 <style></style>
